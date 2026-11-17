@@ -1,7 +1,12 @@
 #include <stdio.h>
 
-int main() {
-	FILE *fptr = fopen("example.txt", "rb");
+int main(int argc, char *argv[]) {
+	printf("Total arguments: %d\n", argc);
+	for (int i = 0; i < argc; i++) {
+		printf("argv[%d]: %s\n", i, argv[i]);
+	}
+
+	FILE *fptr = fopen(argv[0], "rb");
 	fclose(fptr);
 	return 0;
 }
