@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdint.h>
 
 int main(int argc, char *argv[]) {
 	printf("Total arguments: %d\n", argc);
@@ -12,6 +13,7 @@ int main(int argc, char *argv[]) {
 	}
 	unsigned char toc[1];
 	fread(toc, 1, 1, fptr);	
+	uint8_t config = (toc[0] >> 3) & 0x1F;
 	fclose(fptr);
 	return 0;
 }
